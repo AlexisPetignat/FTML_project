@@ -24,6 +24,7 @@
               jupyter-all
               matplotlib
               pandas
+              optuna
             ])))
           ];
         };
