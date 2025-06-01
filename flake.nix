@@ -14,6 +14,10 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             (python312.withPackages (ppkgs: (with ppkgs; [
+              pip
+              pyzmq
+              jupyter
+              notebook
               numpy
               scikit-learn
               jupyterlab
