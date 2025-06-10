@@ -2,30 +2,37 @@
   inputs = {
     utils.url = "github:numtide/flake-utils";
   };
-  outputs = {
-    self,
-    nixpkgs,
-    utils,
-  }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      utils,
+    }:
     utils.lib.eachDefaultSystem (
-      system: let
+      system:
+      let
         pkgs = nixpkgs.legacyPackages.${system};
-      in {
+      in
+      {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            (python312.withPackages (ppkgs: (with ppkgs; [
-              pip
-              pyzmq
-              jupyter
-              notebook
-              numpy
-              scikit-learn
-              jupyterlab
-              jupyter-all
-              matplotlib
-              pandas
-              optuna
-            ])))
+            (python312.withPackages (
+              ppkgs:
+              (with ppkgs; [
+                pip
+                pyzmq
+                jupyter
+                notebook
+                numpy
+                scikit-learn
+                jupyterlab
+                jupyter-all
+                matplotlib
+                pandas
+                optuna
+                seaborn
+              ])
+            ))
           ];
         };
       }
