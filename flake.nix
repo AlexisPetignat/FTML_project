@@ -31,6 +31,9 @@
                 pandas
                 optuna
                 seaborn
+                opencv4
+                xgboost
+                lightgbm
               ])
             ))
           ];
